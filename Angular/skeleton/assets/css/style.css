@@ -1,0 +1,26 @@
+*{
+	list-style: none;
+}
+
+
+/*
+ * 
+ *	导航栏
+ *  
+ */
+.yxm-tab{
+	height: 55px;
+}
+.yxm-tab .row{
+	padding: 0;
+}
+.yxm-tab li{
+	font-size: 25px;
+}
+.yxm-tab span{
+	display: block;
+	font-size: 14px;
+}
+.yxm-tab li.active{
+	color: #ee761a;
+}
