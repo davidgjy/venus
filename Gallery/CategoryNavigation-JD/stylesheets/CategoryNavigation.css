@@ -1,0 +1,161 @@
+body,h1,h2,h3,h4,h5,h6,p,ul,li,dl,dt,dd,div{
+	margin:0;
+	padding:0;
+	font:400 12px/1.5 'Microsoft YaHei',sans-serif;
+	/*box-sizing:border-box;*/
+}
+ul,li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+i{
+	display:inline-block;
+	width:24px;
+	text-align:center;
+}
+.menu{
+	position:relative;
+	width:210px;
+	margin:10px;
+	border-bottom:1px solid #b61d1d;
+}
+.menu h2{
+	padding-left:10px;
+	font-size:15px;
+	line-height:45px;
+	color:#FFF;
+	background:#B1191A;
+}
+.menu .topmenu{
+	background:#C81623;
+}
+.topmenu:hover{
+	border-left:1px solid #b61d1d;
+	background:#F7F7F7;
+}
+/* 一级菜单开始 */
+.topnav h3{
+	display:inline-block;
+	padding-left:10px;
+	font-size:14px;
+	line-height:30px;
+	color:#FFF;
+}
+.topnav i{
+	float:right;
+	line-height:30px;
+	color:#fff;
+}
+.topmenu:hover .topnav h3{
+	color:#B61D1D;
+}
+.topmenu:hover .topnav i{
+	display:none;
+}
+/* 一级菜单结束 */
+
+.submenu{
+	display:none;
+	position:absolute;
+	top:45px;
+	left:210px;
+	width:960px;
+	padding:20px 20px 7px;
+	border:1px solid #C81623;
+	background:#F7F7F7;
+}
+.topmenu:hover .submenu{
+	display:block;
+}
+.submenu .subnav,.submenu .detailnav{
+	float:left;
+}
+/* 渠道导航开始 */
+.subnav .channel{}
+.channel a{
+	display:inline-block;
+	margin-right:10px;
+	padding-left:8px;
+	color:#FFF;
+	background:#7C7171;
+	line-height:24px;
+}
+.channel a i{
+	margin-left:8px;
+	line-height:24px;
+	background:#5c5251;
+}
+.channel a:hover{
+	background:#C81623;
+}
+.channel a:hover i{
+	background:#B1191A;
+}
+/* 渠道导航结束 */
+
+/* 细分导航开始 */
+.detailnav{
+	margin-top:15px;
+}
+.detailnav dl dt{
+	float:left;
+	width:75px;
+	margin-right:15px;
+	text-align:right;
+}
+.detailnav dl dt a{
+	font-weight:700;
+	line-height:30px;
+	color:#666;
+}
+.detailnav dl dd{
+	display:inline-block;
+	width:615px;
+	padding:6px 0;
+	border-top:1px solid #ececec;
+}
+.detailnav dl:first-child dd{
+	border-top-width:0;
+}
+.detailnav dl dd a{
+	padding:0 6px;
+	border-left:1px solid #e0e0e0;
+	color:#666;
+	line-height:22px;
+	white-space:nowrap;
+}
+.detailnav a:hover{
+	color:#C81623;
+}
+/* 细分导航结束 */
+
+/* 推广部分开始 */
+.submenu .promote{
+	float:left;
+	width:167px;
+	margin-left:85px;
+}
+.submenu .brands{
+	margin-bottom:10px;
+	overflow:hidden;
+}
+.brands a{
+	float:left;
+	height:35px;
+	border-top:1px solid #FFF;
+}
+.brands a:first-child,.brands a:nth-child(2){
+	border-top-width:0;
+}
+.brands a:nth-child(odd){
+	border-right:1px solid #FFF;
+}
+.ads a{
+	display:block;
+	height:134px;
+}
+.ads a:first-child{
+	border-bottom:1px solid #FFF;
+}
