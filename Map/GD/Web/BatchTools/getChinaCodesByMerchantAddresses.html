@@ -1,0 +1,119 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <style type="text/css">
+      body,html,#container{
+        height: 300px;
+        width: 95%;
+        margin: 0px;
+      }
+    </style>
+    <title>根据地址获取经纬度</title>
+  </head>
+  <body>
+    <!-- 地址:
+    <input id="txtAddress" type="text" /> -->
+    <input id="btnLoad" type="button" value="加载地图" />
+    <br/>
+    <!-- 经度:
+    <input id="txtLongitude" type="text" />&nbsp;&nbsp;
+    纬度:
+    <input id="txtLatitude" type="text" /> -->
+    <div id="container" tabindex="0"></div>
+    <div id="geoLocation"></div>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=cf7d5637939eb86d5160196d01657374"></script>
+    <script type="text/javascript">     
+
+        $('#btnLoad').click(function () {
+            loadMap();
+        });
+
+        function requestGdMap(map, geocoder, merchant) {
+
+          var merchantId = merchant.id;
+          var merchantNo = merchant.no; 
+          var address = merchant.address;
+
+          var merchantInput = merchant.id + ',' + merchant.no + ',' + merchant.address;
+
+          geocoder.getLocation(address, function(status, result) {
+
+          var geoLine;
+          if (status === 'complete' && result.info === 'OK') {
+              //TODO:获得了有效经纬度，可以做一些展示工作
+              //比如在获得的经纬度上打上一个Marker
+              //alert(JSON.stringify(result.geocodes[0]));
+              var geoObj = result.geocodes[0];
+              var lng = geoObj.location.lng;
+              var lat = geoObj.location.lat;
+              var regionCode = geoObj.adcode;
+              var province = geoObj.addressComponent.province;
+              var city = geoObj.addressComponent.city;
+              var district = geoObj.addressComponent.district;
+              // console.log('Longitude: ' + lng);
+              // console.log('Latitude: ' + lat);
+              geoLine = merchantInput + ',' + geoObj.formattedAddress + ',' + regionCode + ','
+                      +  lng + ',' + lat + province + ',' + city + ',' + district;
+              // $('#txtLongitude').val(lng);
+              // $('#txtLatitude').val(lat);
+              map.setCenter([lng, lat]);
+              var marker = new AMap.Marker({
+                //marker所在的位置
+                position: [lng, lat],
+                map:map //创建时直接赋予map属性
+              });
+              //也可以在创建完成后通过setMap方法执行地图对象
+              marker.setMap(map);
+            }else{
+                //获取经纬度失败
+                geoLine = merchantInput + ',' + '获取经纬度失败';
+                
+            }
+
+            console.log(geoLine);
+            $('#geoLocation').append('<div>' + geoLine + '</div>');
+          });
+        }
+
+        function loadMap() {
+
+          // var strAddr = "309国道石油大厦,安平路与临淄大道交叉口东北角,太和路与正阳大街交叉口以西500米路北（中国石化周村05站内）,共青团路与东二路交叉口以西100米路南（中国石化张店01站内）,太和路与正阳大街交叉口以西500米路北（中国石化周村05站,民生路1199号,机场路635号";
+
+          //var arrAddr = strAddr.split(",");
+        
+
+          var merchants = [
+            { id: 49, no: 'SH20161463131014285', address: '309国道石油大厦' },
+            { id: 50, no: 'SH20161463131611983', address: '安平路与临淄大道交叉口东北角' },
+            { id: 51, no: 'SH20161463132029856', address: '临淄大道与齐都路交叉口东北侧（中国石化临淄02站内）' },
+            { id: 53, no: 'SH20161463133228742', address: '共青团路与东二路交叉口以西100米路南（中国石化张店01站内）' },
+            { id: 54, no: 'SH20161463133450110', address: '太和路与正阳大街交叉口以西500米路北（中国石化周村05站内）' },
+            { id: 91, no: 'SH20161465805409805', address: '民生路1199号' },
+            { id: 92, no: 'SH20161466042223037', address: '机场路635号' }
+          ];
+
+          var map = new AMap.Map('container',{
+              resizeEnable: true,
+              zoom: 12
+          });
+
+          // var address = $('#txtAddress').val();  
+          //alert(address);
+
+          AMap.service('AMap.Geocoder',function(){//回调函数
+            //实例化Geocoder
+            geocoder = new AMap.Geocoder({
+                city: ""//城市，默认：“全国”
+            });
+
+            for (var i=0;i<merchants.length;i++) {
+              requestGdMap(map, geocoder, merchants[i]);
+            }
+          })
+        }
+    </script>
+  </body>
+</html>
