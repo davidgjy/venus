@@ -1,2 +1,2 @@
 # venus
-venus project of html5 and javascript gallery
+html5 and javascript projects gallery
