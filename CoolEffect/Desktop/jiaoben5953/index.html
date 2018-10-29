@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery仿Windows桌面点击双击代码 - A5源码</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/nprogress.css">
+
+</head>
+<body>
+
+  <div id="desktop">
+    <div class="lantern"></div>
+    <ul class="list">
+      <li data-href="http://www.baidu.com/"><img src="images/logo.png" alt="#"><span>Website</span></li>
+      <li data-href=""><img src="images/github.png" alt="#"><span>Github</span></li>
+      <li data-href="http://sc.chinaz.com/yinxiao/"><img src="images/email.png" alt="#"><span>Contact me</span></li>
+      <li data-event="about"><img src="images/tip.png" alt="#"><span>About me</span></li>
+      <li data-href="user/32325"><img src="images/javascript.jpg" alt="#"><span>More</span></li>
+    </ul>
+    <div class="date">
+      <div class="date-wrapper">
+        <div class="mask"></div>
+        <div class="left"></div>
+        <div class="right">
+          <p class="time">21 : 13 : 34</p>
+          <p class="day">2017年08月17日</p>
+          <p class="week">星期四</p>
+        </div>
+      </div>
+      <div class="close"></div>
+    </div>
+    <div class="about">
+      <ul>
+        <li>Coder: Summer</li>
+        <li>Date: 2017.08.24</li>
+        <li>Email: 1234567@qq.com</li>
+        <li>请在转载时保留作者信息，多谢。</li>
+      </ul>
+      <div class="mask"></div>
+      <div class="close"></div>
+    </div>
+    <div class="dragSelect"></div>
+    <div class="contextmenu">
+      <div class="header">Do something.</div>
+      <ul>
+        <li data-value="create"><img src="images/add.png" alt="#">Create file</li>
+        <li data-value="cancel"><img src="images/cancel.png" alt="#">Cancel</li>
+        <li data-value="edit"><img src="images/edit.png" alt="#">Edit file</li>
+        <li data-value="refresh"><img src="images/refresh.png" alt="#">Refresh</li>
+        <li data-value="trash"><img src="images/trash.png" alt="#">Delete file</li>
+      </ul>
+    </div>
+    <div class="dialog">
+      <div class="cont">
+        <input type="text" placeholder="Title Name">
+        <input type="text" placeholder="Images URL">
+        <input type="text" placeholder="Address URL">
+        <span>Confirm</span>
+        <span>Cancel</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/tools.js"></script>
+  <script src="js/tween.js"></script>
+  <script src="js/requestAnimate.js"></script>
+  <script src="js/startMove.js"></script>
+  <script src="js/object.js"></script>
+  <script src="js/nprogress.js"></script>
+  <script src="js/index.js"></script>
+  
+  <!-- Lantern -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/velocity.min.js"></script>
+  <script src="js/lantern.js"></script>
+
+</body>
+</html>
