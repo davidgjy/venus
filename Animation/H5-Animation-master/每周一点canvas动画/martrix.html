@@ -9,11 +9,20 @@
             margin: 0;
             overflow: hidden;
         }
+        .input-box {
+          position: absolute;
+          left: 40%;
+          top: 40%;
+          border: 1px solid #008000;
+          width: 200px;
+        }
     
     </style>
 </head>
 <body>
-   <canvas id="canvas" style="background:#000;"></canvas>
+   <input type="text" class="input-box" />
+   <canvas id="canvas" style="background:#000;">
+   </canvas>
    <script>
        window.onload = function(){
            var canvas = document.querySelector('canvas'),
